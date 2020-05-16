@@ -1,0 +1,44 @@
+#ifndef FILESYS_FILESYS_H
+#define FILESYS_FILESYS_H
+
+#include <stdbool.h>
+#include "filesys/off_t.h"
+
+<<<<<<< HEAD
+/* Per process maximum number of open files. */
+#define MAX_OPEN_FILES 128
+
+=======
+>>>>>>> 930079f5cddde336bd0f6ae751434c089ff3a538
+/* Sectors of system file inodes. */
+#define FREE_MAP_SECTOR 0       /* Free map file inode sector. */
+#define ROOT_DIR_SECTOR 1       /* Root directory file inode sector. */
+
+/* Block device that contains the file system. */
+struct block *fs_device;
+
+void filesys_init (bool format);
+void filesys_done (void);
+bool filesys_create (const char *name, off_t initial_size);
+struct file *filesys_open (const char *name);
+bool filesys_remove (const char *name);
+<<<<<<< HEAD
+bool process_file_create (const char *name, off_t initial_size);
+bool process_file_remove (const char *name);
+int process_file_open (const char *name, bool deny_write);
+off_t process_file_size (int fd);
+off_t process_file_read (int fd, void *buffer_, off_t size);
+off_t process_file_read_at (struct file *file, void *buffer, off_t size,
+                            off_t file_ofs);
+off_t process_file_write (int fd, const void *buffer, off_t size);
+off_t process_file_write_at (struct file *file, const void *buffer, off_t size,
+                             off_t file_ofs);
+void process_file_seek (int fd, off_t new_pos);
+off_t process_file_tell (int fd);
+void process_file_close (int fd);
+bool process_file_is_file (int fd);
+struct file *process_file_get_file (int fd);
+=======
+
+>>>>>>> 930079f5cddde336bd0f6ae751434c089ff3a538
+#endif /* filesys/filesys.h */
